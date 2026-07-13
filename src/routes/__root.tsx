@@ -77,10 +77,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "DSA Master Tracker | TCS NQT + Blind 75 + NeetCode 150" },
+      { title: "DSA Master Tracker | TCS NQT + Blind 75 + NeetCode 150 + Partyush Sheet" },
       { name: "description", content: "Your offline-first, premium DSA preparation cockpit to track progress, solutions, and code execution." },
       { name: "author", content: "DSA Master" },
-      { property: "og:title", content: "DSA Master Tracker" },
+      { property: "og:title", content: "DSA Master Tracker with Partyush Sheet" },
       { property: "og:description", content: "Your offline-first, premium DSA preparation cockpit to track progress, solutions, and code execution." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

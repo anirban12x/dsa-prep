@@ -1,4 +1,4 @@
-export type Sheet = "TCS" | "Blind75" | "NeetCode150";
+export type Sheet = "TCS" | "Blind75" | "NeetCode150" | "Partyush";
 export type Difficulty = "Easy" | "Medium" | "Hard";
 export type Mapping = "Exact" | "Closest" | "Concept" | "None";
 

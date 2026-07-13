@@ -16,12 +16,13 @@ import type { MasterQuestion, Sheet, Difficulty } from "@/data/types";
 import { useTrackerStore, type SharedFilter } from "@/hooks/useTrackerStore";
 import { cn } from "@/lib/utils";
 
-const SHEETS: (Sheet | "All")[] = ["All", "TCS", "Blind75", "NeetCode150"];
+const SHEETS: (Sheet | "All")[] = ["All", "TCS", "Blind75", "NeetCode150", "Partyush"];
 
 const sheetPillClass: Record<Sheet, string> = {
   TCS: "bg-amber-500/10 text-amber-500 border-amber-500/30 dark:bg-amber-500/15 dark:text-amber-400 dark:border-amber-500/20",
   Blind75: "bg-blue-500/10 text-blue-500 border-blue-500/30 dark:bg-blue-500/15 dark:text-blue-400 dark:border-blue-500/20",
   NeetCode150: "bg-emerald-500/10 text-emerald-500 border-emerald-500/30 dark:bg-emerald-500/15 dark:text-emerald-400 dark:border-emerald-500/20",
+  Partyush: "bg-violet-500/10 text-violet-500 border-violet-500/30 dark:bg-violet-500/15 dark:text-violet-400 dark:border-violet-500/20",
 };
 
 const difficultyClass: Record<Difficulty, string> = {
@@ -45,7 +46,6 @@ function matchesShared(q: MasterQuestion, shared: SharedFilter): boolean {
   }
 }
 
-// Java Code syntax highlighting parser
 function highlightJava(code: string): string {
   if (!code) return "";
   const escaped = code
@@ -55,16 +55,16 @@ function highlightJava(code: string): string {
 
   return escaped
     // Comments
-    .replace(/(\/\/.*)/g, '<span class="text-zinc-500/90 italic">$1</span>')
-    .replace(/(\/\*[\s\S]*?\*\/)/g, '<span class="text-zinc-500/90 italic">$1</span>')
+    .replace(/(\/\/.*)/g, '<span CLASS=\'text-zinc-500/90 italic\'>$1</span>')
+    .replace(/(\/\*[\s\S]*?\*\/)/g, '<span CLASS=\'text-zinc-500/90 italic\'>$1</span>')
     // Strings
-    .replace(/(".*?")/g, '<span class="text-emerald-400">$1</span>')
+    .replace(/(".*?")/g, '<span CLASS=\'text-emerald-400\'>$1</span>')
     // Annotations
-    .replace(/(@\w+)/g, '<span class="text-yellow-500">$1</span>')
+    .replace(/(@\w+)/g, '<span CLASS=\'text-yellow-500\'>$1</span>')
     // Keywords
-    .replace(/\b(public|protected|private|class|interface|enum|extends|implements|static|final|abstract|void|int|double|float|long|boolean|char|byte|short|return|if|else|for|while|do|switch|case|break|continue|new|import|package|this|super|throw|throws|try|catch|finally|true|false|null)\b/g, '<span class="text-pink-500 font-semibold">$1</span>')
+    .replace(/\b(public|protected|private|class|interface|enum|extends|implements|static|final|abstract|void|int|double|float|long|boolean|char|byte|short|return|if|else|for|while|do|switch|case|break|continue|new|import|package|this|super|throw|throws|try|catch|finally|true|false|null)\b/g, '<span CLASS=\'text-pink-500 font-semibold\'>$1</span>')
     // Core classes
-    .replace(/\b(String|System|Scanner|List|ArrayList|LinkedList|Map|HashMap|Set|HashSet|Queue|Stack|PriorityQueue|TreeNode|ListNode|Math)\b/g, '<span class="text-cyan-400 font-medium">$1</span>');
+    .replace(/\b(String|System|Scanner|List|ArrayList|LinkedList|Map|HashMap|Set|HashSet|Queue|Stack|PriorityQueue|TreeNode|ListNode|Math)\b/g, '<span CLASS=\'text-cyan-400 font-medium\'>$1</span>');
 }
 
 // Multi-color palette maps
@@ -149,13 +149,17 @@ const sheetTabStyles = {
   NeetCode150: {
     active: () => "border-emerald-500 bg-emerald-500/15 text-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.2)]",
     inactive: "border-zinc-800 bg-zinc-900/40 text-zinc-400 hover:border-emerald-500/50 hover:text-emerald-400"
+  },
+  Partyush: {
+    active: () => "border-violet-500 bg-violet-500/15 text-violet-400 shadow-[0_0_15px_rgba(139,92,246,0.2)]",
+    inactive: "border-zinc-800 bg-zinc-900/40 text-zinc-400 hover:border-violet-500/50 hover:text-violet-400"
   }
 };
 
 // Map each topic to dynamic colorful borders and badges
 function getTopicColor(topic: string) {
   const t = topic.toLowerCase();
-  if (t.includes("array") || t.includes("hash")) {
+  if (t.includes("array") || t.includes("hash") || t.includes("pointer")) {
     return {
       border: "border-sky-500/25 dark:border-sky-500/15 hover:border-sky-500/40 shadow-sky-500/5",
       bg: "bg-sky-500/5",
@@ -171,12 +175,20 @@ function getTopicColor(topic: string) {
       bar: "bg-teal-500"
     };
   }
-  if (t.includes("tree") || t.includes("bst") || t.includes("trie")) {
+  if (t.includes("tree") || t.includes("bst") || t.includes("trie") || t.includes("search")) {
     return {
       border: "border-emerald-500/25 dark:border-emerald-500/15 hover:border-emerald-500/40 shadow-emerald-500/5",
       bg: "bg-emerald-500/5",
       accent: "text-emerald-500 bg-emerald-500/10 dark:bg-emerald-500/15 border-emerald-500/20",
       bar: "bg-emerald-500"
+    };
+  }
+  if (t.includes("list")) {
+    return {
+      border: "border-pink-500/25 dark:border-pink-500/15 hover:border-pink-500/40 shadow-pink-500/5",
+      bg: "bg-pink-500/5",
+      accent: "text-pink-500 bg-pink-500/10 dark:bg-pink-500/15 border-pink-500/20",
+      bar: "bg-pink-500"
     };
   }
   if (t.includes("graph")) {
@@ -423,7 +435,7 @@ export function DsaTracker() {
   const tabCounts = useMemo(() => {
     const total = QUESTIONS.length;
     const c: Record<string, number> = { All: total };
-    for (const s of ["TCS", "Blind75", "NeetCode150"] as Sheet[]) {
+    for (const s of ["TCS", "Blind75", "NeetCode150", "Partyush"] as Sheet[]) {
       c[s] = QUESTIONS.filter(q => q.sheets.includes(s)).length;
     }
     return c;
@@ -509,6 +521,8 @@ export function DsaTracker() {
               <span className="font-semibold text-blue-400">Blind 75</span>
               <span className="opacity-40">•</span>
               <span className="font-semibold text-emerald-400">NeetCode 150</span>
+              <span className="opacity-40">•</span>
+              <span className="font-semibold text-violet-400">Partyush Sheet</span>
               <span className="opacity-40">—</span>
               <span className="font-medium text-zinc-300">Your Ultimate DSA Preparation Cockpit</span>
             </p>
@@ -660,7 +674,7 @@ export function DsaTracker() {
                   isActive ? style.active(accentTheme) : style.inactive
                 )}
               >
-                <span>{s === "All" ? "All Sheets" : s === "TCS" ? "TCS NQT" : s === "Blind75" ? "Blind 75" : "NeetCode 150"}</span>
+                <span>{s === "All" ? "All Sheets" : s === "TCS" ? "TCS NQT" : s === "Blind75" ? "Blind 75" : s === "NeetCode150" ? "NeetCode 150" : "Partyush Sheet"}</span>
                 <span className={cn(
                   "rounded-md px-2 py-0.5 text-xs sm:text-sm font-mono font-black transition-colors", 
                   isActive ? "bg-black/30 text-white" : "bg-zinc-950/60 text-zinc-400"
@@ -740,6 +754,7 @@ export function DsaTracker() {
                 <option value="TCS">TCS NQT Sheet</option>
                 <option value="Blind75">Blind 75 Sheet</option>
                 <option value="NeetCode150">NeetCode 150 Sheet</option>
+                <option value="Partyush">Partyush Sheet</option>
               </select>
             </FilterGroup>
             
@@ -1073,10 +1088,10 @@ function QuestionRow({
           {/* Programmer Friendly: Inline Complexities */}
           <span className="hidden md:inline-flex items-center gap-1.5 rounded bg-zinc-900 border border-zinc-800 px-2.5 py-0.5 font-mono text-xs sm:text-[13px] text-zinc-400">
             <span>T:</span>
-            <span className="font-bold text-zinc-200">{q.logic.time.split(" ")[0]}</span>
+            <span className="font-bold text-zinc-200">{q.logic?.time?.split(" ")[0] ?? "—"}</span>
             <span className="mx-0.5 opacity-40">|</span>
             <span>S:</span>
-            <span className="font-bold text-zinc-200">{q.logic.space.split(" ")[0]}</span>
+            <span className="font-bold text-zinc-200">{q.logic?.space?.split(" ")[0] ?? "—"}</span>
           </span>
         </div>
       </div>

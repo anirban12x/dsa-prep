@@ -321,6 +321,233 @@ const TCS_DEFS: Tcs[] = [
 ];
 
 // ---- Build master list ----
+const P: Sheet = "Partyush";
+
+const PARTYUSH_DEFS = [
+  // Two Pointers
+  { lc: 167, title: "Two Sum II - Input Array Is Sorted", diff: "Medium" as const, topics: ["Two Pointers", "Arrays"] },
+  { lc: null, title: "Segregate 0s and 1s", diff: "Easy" as const, topics: ["Two Pointers", "Arrays"], tcsId: "P-02" },
+  { lc: 26, title: "Remove Duplicates from Sorted Array", diff: "Easy" as const, topics: ["Two Pointers", "Arrays"] },
+  { lc: 83, title: "Remove Duplicates from Sorted List", diff: "Easy" as const, topics: ["Two Pointers", "Linked List"] },
+  { lc: 80, title: "Remove Duplicates from Sorted Array II", diff: "Medium" as const, topics: ["Two Pointers", "Arrays"] },
+  { lc: 977, title: "Squares of a Sorted Array", diff: "Easy" as const, topics: ["Two Pointers", "Arrays"] },
+  { lc: 15, title: "3Sum", diff: "Medium" as const, topics: ["Two Pointers", "Arrays"] },
+  { lc: 16, title: "3Sum Closest", diff: "Medium" as const, topics: ["Two Pointers", "Arrays"] },
+  { lc: null, title: "Count Triplets with Sum Smaller than X", diff: "Medium" as const, topics: ["Two Pointers", "Arrays"], tcsId: "P-08" },
+  { lc: 713, title: "Subarray Product Less Than K", diff: "Medium" as const, topics: ["Two Pointers", "Arrays"] },
+  { lc: 75, title: "Sort Colors", diff: "Medium" as const, topics: ["Two Pointers", "Arrays"] },
+  { lc: 18, title: "4Sum", diff: "Medium" as const, topics: ["Two Pointers", "Arrays"] },
+  { lc: 844, title: "Backspace String Compare", diff: "Easy" as const, topics: ["Two Pointers", "Strings"] },
+  { lc: 581, title: "Shortest Unsorted Continuous Subarray", diff: "Medium" as const, topics: ["Two Pointers", "Arrays"] },
+
+  // Fast & Slow Pointers
+  { lc: 141, title: "Linked List Cycle", diff: "Easy" as const, topics: ["Fast & Slow Pointers", "Linked List"] },
+  { lc: 142, title: "Linked List Cycle II", diff: "Medium" as const, topics: ["Fast & Slow Pointers", "Linked List"] },
+  { lc: 202, title: "Happy Number", diff: "Easy" as const, topics: ["Fast & Slow Pointers", "Math"] },
+  { lc: 287, title: "Find the Duplicate Number", diff: "Medium" as const, topics: ["Fast & Slow Pointers", "Arrays"] },
+  { lc: 876, title: "Middle of the Linked List", diff: "Easy" as const, topics: ["Fast & Slow Pointers", "Linked List"] },
+  { lc: 234, title: "Palindrome Linked List", diff: "Easy" as const, topics: ["Fast & Slow Pointers", "Linked List"] },
+  { lc: 143, title: "Reorder List", diff: "Medium" as const, topics: ["Fast & Slow Pointers", "Linked List"] },
+  { lc: 457, title: "Circular Array Loop", diff: "Medium" as const, topics: ["Fast & Slow Pointers", "Arrays"] },
+
+  // Sliding Window
+  { lc: null, title: "Max Sum Subarray of Size K", diff: "Easy" as const, topics: ["Sliding Window", "Arrays"], tcsId: "P-21" },
+  { lc: 209, title: "Minimum Size Subarray Sum", diff: "Medium" as const, topics: ["Sliding Window", "Arrays"] },
+  { lc: 340, title: "Longest Substring with At Most K Distinct Characters", diff: "Medium" as const, topics: ["Sliding Window", "Strings"] },
+  { lc: 904, title: "Fruit Into Baskets", diff: "Medium" as const, topics: ["Sliding Window", "Arrays"] },
+  { lc: 3, title: "Longest Substring Without Repeating Characters", diff: "Medium" as const, topics: ["Sliding Window", "Strings"] },
+  { lc: 424, title: "Longest Repeating Character Replacement", diff: "Medium" as const, topics: ["Sliding Window", "Strings"] },
+  { lc: 1004, title: "Max Consecutive Ones III", diff: "Medium" as const, topics: ["Sliding Window", "Arrays"] },
+  { lc: 76, title: "Minimum Window Substring", diff: "Hard" as const, topics: ["Sliding Window", "Strings"] },
+  { lc: 567, title: "Permutation in String", diff: "Medium" as const, topics: ["Sliding Window", "Strings"] },
+  { lc: 438, title: "Find All Anagrams in a String", diff: "Medium" as const, topics: ["Sliding Window", "Strings"] },
+  { lc: 30, title: "Substring with Concatenation of All Words", diff: "Hard" as const, topics: ["Sliding Window", "Strings"] },
+
+  // Kadane pattern
+  { lc: 53, title: "Maximum Subarray", diff: "Medium" as const, topics: ["DP", "Arrays"] },
+  { lc: null, title: "Smallest Sum Contiguous Subarray", diff: "Easy" as const, topics: ["DP", "Arrays"], tcsId: "P-34" },
+  { lc: 152, title: "Maximum Product Subarray", diff: "Medium" as const, topics: ["DP", "Arrays"] },
+  { lc: 1186, title: "Maximum Subarray Sum with One Deletion", diff: "Medium" as const, topics: ["DP", "Arrays"] },
+  { lc: 1749, title: "Maximum Absolute Sum of Any Subarray", diff: "Medium" as const, topics: ["DP", "Arrays"] },
+  { lc: 918, title: "Maximum Sum Circular Subarray", diff: "Medium" as const, topics: ["DP", "Arrays"] },
+
+  // Prefix Sum
+  { lc: 560, title: "Subarray Sum Equals K", diff: "Medium" as const, topics: ["Arrays"] },
+  { lc: 724, title: "Find Pivot Index", diff: "Easy" as const, topics: ["Arrays"] },
+  { lc: 974, title: "Subarray Sums Divisible by K", diff: "Medium" as const, topics: ["Arrays"] },
+  { lc: 525, title: "Contiguous Array", diff: "Medium" as const, topics: ["Arrays"] },
+  { lc: 862, title: "Shortest Subarray with Sum at Least K", diff: "Hard" as const, topics: ["Arrays"] },
+  { lc: 327, title: "Count of Range Sum", diff: "Hard" as const, topics: ["Arrays"] },
+
+  // Merge Intervals
+  { lc: 56, title: "Merge Intervals", diff: "Medium" as const, topics: ["Arrays"] },
+  { lc: 57, title: "Insert Interval", diff: "Medium" as const, topics: ["Arrays"] },
+  { lc: 986, title: "Interval List Intersections", diff: "Medium" as const, topics: ["Arrays"] },
+  { lc: null, title: "Overlapping Intervals", diff: "Medium" as const, topics: ["Arrays"], tcsId: "P-48" },
+  { lc: 253, title: "Meeting Rooms II", diff: "Medium" as const, topics: ["Arrays", "Heap"] },
+  { lc: null, title: "Maximum CPU Load", diff: "Hard" as const, topics: ["Arrays", "Heap"], tcsId: "P-50" },
+  { lc: 759, title: "Employee Free Time", diff: "Hard" as const, topics: ["Arrays", "Heap"] },
+
+  // In-place Reversal of a LinkedList
+  { lc: 206, title: "Reverse Linked List", diff: "Easy" as const, topics: ["Linked List"] },
+  { lc: 92, title: "Reverse Linked List II", diff: "Medium" as const, topics: ["Linked List"] },
+  { lc: 24, title: "Swap Nodes in Pairs", diff: "Medium" as const, topics: ["Linked List"] },
+  { lc: 25, title: "Reverse Nodes in k-Group", diff: "Hard" as const, topics: ["Linked List"] },
+  { lc: 2074, title: "Reverse Nodes in Even Length Groups", diff: "Medium" as const, topics: ["Linked List"] },
+  { lc: 61, title: "Rotate List", diff: "Medium" as const, topics: ["Linked List"] },
+
+  // Stack
+  { lc: 1047, title: "Remove All Adjacent Duplicates In String", diff: "Easy" as const, topics: ["Stack", "Strings"] },
+  { lc: 20, title: "Valid Parentheses", diff: "Easy" as const, topics: ["Stack", "Strings"] },
+  { lc: 344, title: "Reverse String", diff: "Easy" as const, topics: ["Two Pointers", "Strings"] },
+  { lc: 503, title: "Next Greater Element II", diff: "Medium" as const, topics: ["Stack", "Arrays"] },
+  { lc: 739, title: "Daily Temperatures", diff: "Medium" as const, topics: ["Stack", "Arrays"] },
+  { lc: 2487, title: "Remove Nodes From Linked List", diff: "Medium" as const, topics: ["Stack", "Linked List"] },
+  { lc: 1209, title: "Remove All Adjacent Duplicates in String II", diff: "Medium" as const, topics: ["Stack", "Strings"] },
+  { lc: 71, title: "Simplify Path", diff: "Medium" as const, topics: ["Stack", "Strings"] },
+  { lc: 402, title: "Remove K Digits", diff: "Medium" as const, topics: ["Stack", "Arrays"] },
+
+  // Hash Maps
+  { lc: 387, title: "First Unique Character in a String", diff: "Easy" as const, topics: ["HashMap", "Strings"] },
+  { lc: 1189, title: "Maximum Number of Balloons", diff: "Easy" as const, topics: ["HashMap", "Strings"] },
+  { lc: 409, title: "Longest Palindrome", diff: "Easy" as const, topics: ["HashMap", "Strings"] },
+  { lc: 383, title: "Ransom Note", diff: "Easy" as const, topics: ["HashMap", "Strings"] },
+
+  // Binary Search
+  { lc: 704, title: "Binary Search", diff: "Easy" as const, topics: ["Binary Search", "Arrays"] },
+  { lc: null, title: "Ceiling in a Sorted Array", diff: "Easy" as const, topics: ["Binary Search", "Arrays"], tcsId: "P-72" },
+  { lc: 34, title: "Find First and Last Position of Element in Sorted Array", diff: "Medium" as const, topics: ["Binary Search", "Arrays"] },
+  { lc: null, title: "Number of Occurrence", diff: "Easy" as const, topics: ["Binary Search", "Arrays"], tcsId: "P-74" },
+  { lc: null, title: "Find position of an element in a sorted array of infinite numbers", diff: "Medium" as const, topics: ["Binary Search", "Arrays"], tcsId: "P-75" },
+  { lc: 852, title: "Peak Index in a Mountain Array", diff: "Medium" as const, topics: ["Binary Search", "Arrays"] },
+  { lc: 162, title: "Find Peak Element", diff: "Medium" as const, topics: ["Binary Search", "Arrays"] },
+  { lc: 153, title: "Find Minimum in Rotated Sorted Array", diff: "Medium" as const, topics: ["Binary Search", "Arrays"] },
+  { lc: null, title: "Find number of rotations in a rotated sorted array", diff: "Easy" as const, topics: ["Binary Search", "Arrays"], tcsId: "P-79" },
+  { lc: 33, title: "Search in Rotated Sorted Array", diff: "Medium" as const, topics: ["Binary Search", "Arrays"] },
+  { lc: 875, title: "Koko Eating Bananas", diff: "Medium" as const, topics: ["Binary Search", "Arrays"] },
+  { lc: 1482, title: "Minimum Number of Days to Make m Bouquets", diff: "Medium" as const, topics: ["Binary Search", "Arrays"] },
+  { lc: null, title: "Aggressive Cows", diff: "Medium" as const, topics: ["Binary Search", "Arrays"], tcsId: "P-83" },
+  { lc: 275, title: "H-Index II", diff: "Medium" as const, topics: ["Binary Search", "Arrays"] },
+  { lc: 2226, title: "Maximum Candies Allocated to K Children", diff: "Medium" as const, topics: ["Binary Search", "Arrays"] },
+  { lc: 1011, title: "Capacity To Ship Packages Within D Days", diff: "Medium" as const, topics: ["Binary Search", "Arrays"] },
+  { lc: null, title: "Allocate minimum number of pages", diff: "Medium" as const, topics: ["Binary Search", "Arrays"], tcsId: "P-87" },
+  { lc: 410, title: "Split Array Largest Sum", diff: "Hard" as const, topics: ["Binary Search", "Arrays"] },
+  { lc: 74, title: "Search a 2D Matrix", diff: "Medium" as const, topics: ["Binary Search", "Matrix"] },
+  { lc: 240, title: "Search a 2D Matrix II", diff: "Medium" as const, topics: ["Binary Search", "Matrix"] },
+  { lc: 378, title: "Kth Smallest Element in a Sorted Matrix", diff: "Medium" as const, topics: ["Binary Search", "Matrix"] },
+  { lc: 668, title: "Kth Smallest Number in Multiplication Table", diff: "Hard" as const, topics: ["Binary Search", "Matrix"] },
+  { lc: 4, title: "Median of Two Sorted Arrays", diff: "Hard" as const, topics: ["Binary Search", "Arrays"] },
+
+  // Heap
+  { lc: null, title: "Kth Smallest Element", diff: "Medium" as const, topics: ["Heap", "Arrays"], tcsId: "P-94" },
+  { lc: 215, title: "Kth Largest Element in an Array", diff: "Medium" as const, topics: ["Heap", "Arrays"] },
+  { lc: 347, title: "Top K Frequent Elements", diff: "Medium" as const, topics: ["Heap", "Arrays"] },
+  { lc: 692, title: "Top K Frequent Words", diff: "Medium" as const, topics: ["Heap", "Strings"] },
+  { lc: 973, title: "K Closest Points to Origin", diff: "Medium" as const, topics: ["Heap", "Arrays"] },
+  { lc: 658, title: "Find K Closest Elements", diff: "Medium" as const, topics: ["Heap", "Arrays"] },
+  { lc: 1337, title: "The K Weakest Rows in a Matrix", diff: "Easy" as const, topics: ["Heap", "Matrix"] },
+  { lc: null, title: "Merge K sorted arrays", diff: "Medium" as const, topics: ["Heap", "Arrays"], tcsId: "P-101" },
+
+  // Greedy + Heap
+  { lc: 1046, title: "Last Stone Weight", diff: "Easy" as const, topics: ["Heap", "Arrays"] },
+  { lc: 621, title: "Task Scheduler", diff: "Medium" as const, topics: ["Heap", "Greedy"] },
+  { lc: 767, title: "Reorganize String", diff: "Medium" as const, topics: ["Heap", "Strings"] },
+  { lc: 871, title: "Minimum Number of Refueling Stops", diff: "Hard" as const, topics: ["Heap", "Greedy"] },
+  { lc: 502, title: "IPO", diff: "Hard" as const, topics: ["Heap", "Greedy"] },
+  { lc: 630, title: "Course Schedule III", diff: "Hard" as const, topics: ["Heap", "Greedy"] },
+
+  // 2 Heaps
+  { lc: 295, title: "Find Median from Data Stream", diff: "Hard" as const, topics: ["Heap", "Design"] },
+  { lc: 480, title: "Sliding Window Median", diff: "Hard" as const, topics: ["Heap", "Sliding Window"] },
+
+  // Recursion and Backtracking
+  { lc: 509, title: "Fibonacci Number", diff: "Easy" as const, topics: ["Backtracking", "Math"] },
+  { lc: null, title: "Palindrome String", diff: "Easy" as const, topics: ["Backtracking", "Strings"], tcsId: "P-112" },
+  { lc: null, title: "Check if an Array is Sorted", diff: "Easy" as const, topics: ["Backtracking", "Arrays"], tcsId: "P-113" },
+  { lc: null, title: "Sum of Digits of a Number", diff: "Easy" as const, topics: ["Backtracking", "Math"], tcsId: "P-114" },
+  { lc: null, title: "Remove all occurrences of a character in a string", diff: "Easy" as const, topics: ["Backtracking", "Strings"], tcsId: "P-115" },
+  { lc: 22, title: "Generate Parentheses", diff: "Medium" as const, topics: ["Backtracking", "Strings"] },
+  { lc: 17, title: "Letter Combinations of a Phone Number", diff: "Medium" as const, topics: ["Backtracking", "Strings"] },
+  { lc: 46, title: "Permutations", diff: "Medium" as const, topics: ["Backtracking", "Arrays"] },
+  { lc: 39, title: "Combination Sum", diff: "Medium" as const, topics: ["Backtracking", "Arrays"] },
+  { lc: 131, title: "Palindrome Partitioning", diff: "Medium" as const, topics: ["Backtracking", "Strings"] },
+
+  // Tree Pattern
+  { lc: 94, title: "Binary Tree Inorder Traversal", diff: "Easy" as const, topics: ["Trees"] },
+  { lc: 144, title: "Binary Tree Preorder Traversal", diff: "Easy" as const, topics: ["Trees"] },
+  { lc: 145, title: "Binary Tree Postorder Traversal", diff: "Easy" as const, topics: ["Trees"] },
+  { lc: 102, title: "Binary Tree Level Order Traversal", diff: "Medium" as const, topics: ["Trees", "BFS"] },
+  { lc: 103, title: "Binary Tree Zigzag Level Order Traversal", diff: "Medium" as const, topics: ["Trees", "BFS"] },
+  { lc: 107, title: "Binary Tree Level Order Traversal II", diff: "Medium" as const, topics: ["Trees", "BFS"] },
+  { lc: 226, title: "Invert Binary Tree", diff: "Easy" as const, topics: ["Trees"] },
+  { lc: 101, title: "Symmetric Tree", diff: "Easy" as const, topics: ["Trees"] },
+  { lc: 100, title: "Same Tree", diff: "Easy" as const, topics: ["Trees"] },
+  { lc: 572, title: "Subtree of Another Tree", diff: "Easy" as const, topics: ["Trees"] },
+  { lc: 951, title: "Flip Equivalent Binary Trees", diff: "Medium" as const, topics: ["Trees"] },
+  { lc: 236, title: "Lowest Common Ancestor of a Binary Tree", diff: "Medium" as const, topics: ["Trees"] },
+  { lc: 700, title: "Search in a Binary Search Tree", diff: "Easy" as const, topics: ["Trees"] },
+  { lc: 235, title: "Lowest Common Ancestor of a Binary Search Tree", diff: "Medium" as const, topics: ["Trees"] },
+  { lc: 1123, title: "Lowest Common Ancestor of Deepest Leaves", diff: "Medium" as const, topics: ["Trees"] },
+  { lc: 653, title: "Two Sum IV - Input is a BST", diff: "Easy" as const, topics: ["Trees"] },
+  { lc: 230, title: "Kth Smallest Element in a BST", diff: "Medium" as const, topics: ["Trees"] },
+  { lc: 111, title: "Minimum Depth of Binary Tree", diff: "Easy" as const, topics: ["Trees"] },
+  { lc: 104, title: "Maximum Depth of Binary Tree", diff: "Easy" as const, topics: ["Trees", "DFS"] },
+  { lc: 110, title: "Balanced Binary Tree", diff: "Easy" as const, topics: ["Trees"] },
+  { lc: 543, title: "Diameter of Binary Tree", diff: "Easy" as const, topics: ["Trees"] },
+  { lc: 958, title: "Check Completeness of a Binary Tree", diff: "Medium" as const, topics: ["Trees"] },
+  { lc: 98, title: "Validate Binary Search Tree", diff: "Medium" as const, topics: ["Trees"] },
+  { lc: 99, title: "Recover Binary Search Tree", diff: "Medium" as const, topics: ["Trees"] },
+  { lc: 112, title: "Path Sum", diff: "Easy" as const, topics: ["Trees"] },
+  { lc: 113, title: "Path Sum II", diff: "Medium" as const, topics: ["Trees"] },
+  { lc: 129, title: "Sum Root to Leaf Numbers", diff: "Medium" as const, topics: ["Trees"] },
+  { lc: 124, title: "Binary Tree Maximum Path Sum", diff: "Hard" as const, topics: ["Trees", "DP"] },
+  { lc: 105, title: "Construct Binary Tree from Preorder and Inorder Traversal", diff: "Medium" as const, topics: ["Trees"] },
+  { lc: 106, title: "Construct Binary Tree from Inorder and Postorder Traversal", diff: "Medium" as const, topics: ["Trees"] },
+  { lc: 108, title: "Convert Sorted Array to Binary Search Tree", diff: "Easy" as const, topics: ["Trees"] },
+
+  // Graphs
+  { lc: null, title: "Print adjacency list", diff: "Easy" as const, topics: ["Graphs"], tcsId: "P-152" },
+  { lc: null, title: "Depth First Traversal for a Graph", diff: "Easy" as const, topics: ["Graphs"], tcsId: "P-153" },
+  { lc: null, title: "BFS traversal of graph", diff: "Easy" as const, topics: ["Graphs"], tcsId: "P-154" },
+  { lc: 200, title: "Number of Islands", diff: "Medium" as const, topics: ["Matrix", "DFS", "BFS"] },
+  { lc: 547, title: "Number of Provinces", diff: "Medium" as const, topics: ["Graphs", "DFS", "BFS"] },
+  { lc: 994, title: "Rotting Oranges", diff: "Medium" as const, topics: ["Matrix", "BFS"] },
+  { lc: null, title: "Detect cycle in an undirected graph", diff: "Medium" as const, topics: ["Graphs"], tcsId: "P-158" },
+  { lc: null, title: "Detect cycle in a directed graph", diff: "Medium" as const, topics: ["Graphs"], tcsId: "P-159" },
+  { lc: null, title: "Topological sort", diff: "Medium" as const, topics: ["Graphs"], tcsId: "P-160" },
+  { lc: 785, title: "Is Graph Bipartite?", diff: "Medium" as const, topics: ["Graphs", "DFS", "BFS"] },
+  { lc: 130, title: "Surrounded Regions", diff: "Medium" as const, topics: ["Matrix", "DFS"] },
+  { lc: null, title: "Shortest path in undirected graph", diff: "Easy" as const, topics: ["Graphs"], tcsId: "P-163" },
+  { lc: null, title: "Implementing Dijkstra Algorithm", diff: "Medium" as const, topics: ["Graphs"], tcsId: "P-164" },
+  { lc: 743, title: "Network Delay Time", diff: "Medium" as const, topics: ["Graphs", "Heap"] },
+  { lc: 1631, title: "Path With Minimum Effort", diff: "Medium" as const, topics: ["Matrix", "Binary Search", "Heap"] },
+  { lc: 778, title: "Swim in Rising Water", diff: "Hard" as const, topics: ["Matrix", "Binary Search", "Heap"] },
+  { lc: null, title: "Distance from the source (Bellman-Ford)", diff: "Medium" as const, topics: ["Graphs"], tcsId: "P-168" },
+  { lc: 787, title: "Cheapest Flights Within K Stops", diff: "Medium" as const, topics: ["Graphs", "DP"] },
+  { lc: null, title: "Minimum Spanning Tree", diff: "Medium" as const, topics: ["Graphs"], tcsId: "P-170" },
+  { lc: 127, title: "Word Ladder", diff: "Hard" as const, topics: ["Graphs", "BFS", "Strings"] },
+
+  // DP
+  { lc: 509, title: "Fibonacci Number", diff: "Easy" as const, topics: ["DP", "Math"] },
+  { lc: 70, title: "Climbing Stairs", diff: "Easy" as const, topics: ["DP"] },
+  { lc: 198, title: "House Robber", diff: "Medium" as const, topics: ["DP", "Arrays"] },
+  { lc: null, title: "0 - 1 Knapsack Problem", diff: "Medium" as const, topics: ["DP"], tcsId: "P-175" },
+  { lc: null, title: "Episode 06: Tabulation Intro", diff: "Easy" as const, topics: ["DP"], tcsId: "P-176" },
+  { lc: null, title: "0 - 1 Knapsack Problem (Tabulation)", diff: "Medium" as const, topics: ["DP"], tcsId: "P-177" },
+  { lc: null, title: "Subset Sum Problem", diff: "Medium" as const, topics: ["DP"], tcsId: "P-178" },
+  { lc: 494, title: "Target Sum", diff: "Medium" as const, topics: ["DP", "Arrays"] },
+  { lc: 300, title: "Longest Increasing Subsequence", diff: "Medium" as const, topics: ["DP", "Arrays"] },
+  { lc: null, title: "Episode 11: LIS Tabulation", diff: "Medium" as const, topics: ["DP"], tcsId: "P-181" },
+  { lc: 1143, title: "Longest Common Subsequence", diff: "Medium" as const, topics: ["DP", "Strings"] },
+  { lc: 62, title: "Unique Paths", diff: "Medium" as const, topics: ["DP", "Matrix"] },
+  { lc: 121, title: "Best Time to Buy and Sell Stock", diff: "Easy" as const, topics: ["DP", "Arrays"] },
+  { lc: 122, title: "Best Time to Buy and Sell Stock II", diff: "Medium" as const, topics: ["DP", "Arrays"] },
+  { lc: 123, title: "Best Time to Buy and Sell Stock III", diff: "Hard" as const, topics: ["DP", "Arrays"] },
+  { lc: 188, title: "Best Time to Buy and Sell Stock IV", diff: "Hard" as const, topics: ["DP", "Arrays"] },
+  { lc: 1547, title: "Minimum Cost to Cut a Stick", diff: "Hard" as const, topics: ["DP"] },
+  { lc: null, title: "Episode 16: Revision", diff: "Easy" as const, topics: ["DP"], tcsId: "P-186" }
+];
+
 // LC entries first
 const lcQuestions: MasterQuestion[] = LC_DEFS.map(make);
 
@@ -331,7 +558,6 @@ for (const t of TCS_DEFS) {
     const existing = lcQuestions.find(q => q.leetcodeNumber === t.lc);
     if (existing) {
       if (!existing.sheets.includes(T)) existing.sheets.push(T);
-      // Still keep a TCS-specific alias for search? No — dedupe: single canonical row.
       continue;
     }
     // LC not in Blind75/NC150; create a new LC-based master question with TCS sheet
@@ -358,7 +584,56 @@ for (const t of TCS_DEFS) {
   }
 }
 
-export const QUESTIONS: MasterQuestion[] = [...lcQuestions, ...tcsExtras];
+// Partyush entries — if LC number or title matches an existing question, extend that question's sheets list instead of creating a duplicate row
+const partyushExtras: MasterQuestion[] = [];
+for (const p of PARTYUSH_DEFS) {
+  if (p.lc !== null) {
+    // 1. Search in lcQuestions
+    let existing = lcQuestions.find(q => q.leetcodeNumber === p.lc);
+    // 2. Search in tcsExtras
+    if (!existing) {
+      existing = tcsExtras.find(q => q.leetcodeNumber === p.lc);
+    }
+    
+    if (existing) {
+      if (!existing.sheets.includes(P)) existing.sheets.push(P);
+      continue;
+    }
+    
+    partyushExtras.push(make({
+      lc: p.lc,
+      title: p.title,
+      diff: p.diff,
+      topics: p.topics,
+      sheets: [P],
+    }));
+  } else {
+    // Conceptual or GfG question
+    // Search by title (case-insensitive) in existing lists
+    let existing = lcQuestions.find(q => q.title.toLowerCase() === p.title.toLowerCase());
+    if (!existing) {
+      existing = tcsExtras.find(q => q.title.toLowerCase() === p.title.toLowerCase());
+    }
+    
+    if (existing) {
+      if (!existing.sheets.includes(P)) existing.sheets.push(P);
+      continue;
+    }
+    
+    partyushExtras.push(make({
+      lc: null,
+      title: p.title,
+      diff: p.diff,
+      topics: p.topics,
+      sheets: [P],
+      mapping: "None",
+      tcsId: p.tcsId,
+      tcsTitle: p.title,
+    }));
+  }
+}
+
+export const QUESTIONS: MasterQuestion[] = [...lcQuestions, ...tcsExtras, ...partyushExtras];
 
 export const ALL_TOPICS: string[] = Array.from(
   new Set(QUESTIONS.flatMap(q => q.topics))
@@ -368,4 +643,5 @@ export const SHEET_LABEL: Record<Sheet, string> = {
   TCS: "TCS",
   Blind75: "Blind75",
   NeetCode150: "NeetCode150",
+  Partyush: "Partyush Sheet",
 };

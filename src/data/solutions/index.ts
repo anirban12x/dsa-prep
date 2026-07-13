@@ -5,6 +5,7 @@ import { TREE_SOLUTIONS } from "./trees";
 import { GRAPH_SOLUTIONS } from "./graphs";
 import { DP_SOLUTIONS } from "./dp";
 import { OTHER_SOLUTIONS } from "./others";
+import { PARTYUSH_SOLUTIONS } from "./partyush";
 import type { QuestionLogic } from "../types";
 
 // Combine all explicit solutions
@@ -16,6 +17,7 @@ const EXPLICIT_SOLUTIONS: Record<string, { logic: QuestionLogic; java: string }>
   ...GRAPH_SOLUTIONS,
   ...DP_SOLUTIONS,
   ...OTHER_SOLUTIONS,
+  ...PARTYUSH_SOLUTIONS,
 };
 
 // Clean helper to normalize titles for code generation
@@ -42,7 +44,24 @@ function pascalCase(str: string): string {
 export function getSolution(id: string, title: string, topic: string): { logic: QuestionLogic; java: string } {
   // 1. If we have a hand-written solution, return it.
   if (EXPLICIT_SOLUTIONS[id]) {
-    return EXPLICIT_SOLUTIONS[id];
+    const sol = EXPLICIT_SOLUTIONS[id] as any;
+    if (sol.logic) {
+      return sol;
+    }
+    // If logic fields are un-nested, normalize them
+    return {
+      logic: {
+        summary: sol.summary ?? "",
+        approach: sol.approach ?? "",
+        intuition: sol.intuition ?? "",
+        pseudocode: sol.pseudocode ?? "",
+        dryRun: sol.dryRun ?? "",
+        time: sol.time ?? "O(n)",
+        space: sol.space ?? "O(1)",
+        interviewPoints: sol.interviewPoints ?? [],
+      },
+      java: sol.java ?? "",
+    };
   }
 
   // 2. Generate a highly custom, realistic solution based on the topic and title.
